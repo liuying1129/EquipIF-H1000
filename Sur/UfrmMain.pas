@@ -347,6 +347,8 @@ begin
   adotemp22:=tadoquery.Create(nil);
   adotemp22.Connection:=ADOConn_BS;
   adotemp22.Close;
+  adotemp22.SQL.Text:='SET NAMES GB2312;';//GB2312//gbk//解决汉字乱码问题
+  adotemp22.ExecSQL;
   adotemp22.SQL.Clear;
   adotemp22.SQL.Text:='select si.NAME,si.SEX,si.AGE,si.AGEUNIT,si.HOSPITALIZEDNUM,si.MEDICALRECORDNUM,si.DEPTNUM,si.BEDNUM,si.DATE,si.TIME,'+
                       ' usi.PID,usi.STATUS,usi.TURBIDITY,usi.COLOR,usi.DIAGNOSIS,'+
