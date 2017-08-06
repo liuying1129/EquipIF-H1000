@@ -376,7 +376,8 @@ begin
     sPath:=adotemp22.fieldbyname('Path').AsString;
     if sPath<>'' then
       if sPath[length(sPath)]<>'\' then sPath:=sPath+'\';
-      
+    sPath:=StringReplace(sPath,'/','\',[rfReplaceAll]);//仪器接口表中的路径使用的是/
+
     sFileName:=adotemp22.fieldbyname('FileName').AsString;
     ls:=TStringList.Create;
     ExtractStrings([#$20],[],pchar(sFileName),ls);
