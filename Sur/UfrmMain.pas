@@ -356,8 +356,8 @@ begin
                       ' udri.ITEM21,udri.ITEM22,udri.ITEM23,udri.ITEM24,udri.ITEM25,udri.ITEM26,udri.ITEM27,udri.ITEM28,udri.ITEM29,udri.ITEM30,udri.ITEM31,udri.ITEM32,udri.ITEM33,udri.ITEM34 '+
                       ' from sick_info si '+
                       ' inner join urine_sample_info usi on si.SID=usi.UID '+
-                      ' left join urine_ref_value_index urvi on usi.PID=urvi.SAMPLEID '+
-                      ' left join urine_dry_results_index udri on usi.PID=udri.PID '+
+                      ' left join urine_ref_value_index urvi on usi.PID=urvi.SAMPLEID and urvi.date=si.DATE '+
+                      ' left join urine_dry_results_index udri on usi.PID=udri.PID and udri.date=si.DATE '+
                       ' where si.DATE='''+FormatDateTime('YYYYMMDD',DateTimePicker1.Date)+''' ';
   adotemp22.Open;
   while not adotemp22.Eof do
